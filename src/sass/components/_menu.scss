@@ -1,0 +1,471 @@
+/*
+==============================
+Agent Menu
+==============================
+*/
+
+.drawer-open {
+
+	.agent-menu {
+		box-shadow:4px 0 5px 0 rgba(50,50,50,0.35);
+	}
+}
+
+
+.agent-menu {
+
+	
+	
+	.client-profile {
+
+		text-align:center;
+		background:darken($themeBlue, 30%);
+		color:white;
+		padding:20px 0px;
+		
+		@media #{$sm-min} { 
+			padding:30px 0px;
+		}
+		
+
+		img {
+			
+			width:70px;
+			border:2px solid white;
+			box-shadow: 4px 0 5px 0 rgba(50, 50, 50, 0.8);
+			margin-bottom:10px;
+			
+			@media #{$sm-min} { 
+				width:160px;
+				border:4px solid white;
+			}
+
+		}
+
+		.agent-name {
+
+			font-size:1.8rem;
+			line-height:2.4rem;
+			font-weight:800;
+			font-family:$droid;
+
+			@media #{$sm-min} { 
+				font-size:2.2rem;
+				line-height:2.8rem;
+			}
+
+		}
+
+		.fi-slogan {
+			font-size:1.2rem;
+			line-height:1.8rem;
+			font-family:$droid;
+			font-weight:300;
+			margin-bottom:12px;
+
+			@media #{$sm-min} { 
+				font-size:1.4rem;
+				line-height:2.4rem;
+			}
+
+		}
+
+		.chat-btn {
+			font-size:1.4rem;
+			font-family:$droid;
+			font-weight:300;
+			
+			
+			border:1px solid white;
+
+			&:hover {
+				color:darken($themeBlue, 30%);
+			}
+
+			@media #{$sm-min} { 
+				padding:10px 25px;
+				font-size:1.6rem;
+			}
+
+		}
+
+		.sch-meeting {
+
+			display:block;			
+			font-size:1.2rem;
+			color:white;
+			padding-top:7px;
+			&:hover {
+				text-decoration:none!important;
+				color:lighten($themeBlue, 20%);
+
+			}
+
+
+			@media #{$sm-min} { 
+				font-size:1.4rem;
+			}
+
+		}
+	}
+
+	.client-logo {
+
+		background:$themeGrey;
+		position:absolute;
+		bottom:0;
+		width:100%;
+		text-align:center;
+
+	}
+
+
+
+}
+
+
+
+/* Menu Navigation */
+.dl-menu li span
+{ 
+	display: block; 
+	text-align: right; 
+	color:darken($themeBlue, 30%);  
+	position: absolute; 
+	right: 17px; 
+	top:5px;
+	font-size: 20px;
+	@media #{$sm-min} { 
+		top:10px; 
+	}
+
+
+}
+
+.dl-menu li span:hover{color:#fff;}
+.back-arrow{text-align: left; color:#fff;  position: absolute; left: 10px; top:5px; font-size: 20px !important;
+display: block !important; z-index: 1000;}
+
+.dl-menuwrapper {
+	@extend %clearfix;
+	width:100%;
+	
+	float: left;
+	position: relative;
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+	-webkit-perspective-origin: 50% 200%;
+	perspective-origin: 50% 200%;
+	overflow: hidden;
+	
+	@media #{$sm-min} { 
+		border-bottom:1px solid darken($themeBlue, 30%);
+	}
+
+	ul {
+		margin-bottom:0px;
+	}
+}
+
+.dl-menuwrapper:first-child {
+	margin-right: 100px;
+}
+
+/*.dl-menuwrapper button {
+	background: #ccc;
+	border: none;
+	width: 48px;
+	height: 45px;
+	text-indent: -900em;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+}
+*/
+.dl-subviewopen span{display: none !important;}
+.dl-menuwrapper button:hover,
+.dl-menuwrapper button.dl-active,
+.dl-menuwrapper ul {
+	/*background: #aaa;*/
+}
+
+.dl-menuwrapper button:after {
+	content: '';
+	position: absolute;
+	width: 68%;
+	height: 5px;
+	/*background: #fff;*/
+	top: 10px;
+	left: 16%;
+	box-shadow: 
+		0 10px 0 #fff, 
+		0 20px 0 #fff;
+}
+/* .dl-menuwrapper{margin-top:10px;} */
+.dl-menuwrapper ul {
+	padding: 0;
+	list-style: none;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;	
+}
+
+
+.dl-menuwrapper li {
+	position: relative;
+	&:hover {
+
+		span {
+			color:white;
+		}
+
+		&.dl-back a {
+			
+			&:before {
+
+			color:white;
+			}
+		}
+
+	}
+
+	&.dl-back a
+
+	 {
+
+		&:before {
+			position: absolute;
+			top: 0px;
+			left: 10px;
+			line-height: 40px;
+			font-family: FontAwesome;
+			speak: none;
+			-webkit-font-smoothing: antialiased;
+			content: "\f104";
+			color: #173648;
+			margin-right: 10px;
+			font-size: 20px;
+			@media #{$sm-min} { 
+				top: 10px;
+			}
+
+		}
+
+	}
+}
+
+.dl-menuwrapper li a {
+	display: block;
+	position: relative;
+	line-height: 2.2rem;
+	font-weight: 600;
+	color:#444;
+	outline: none;
+	text-align: left;
+	font-family: $droid; 
+	font-size:1.4rem;
+	padding-left: 40px;
+	padding-top:5px;
+	padding-bottom: 5px;
+	@media #{$sm-min} { 
+		padding-top:10px;
+		padding-bottom:10px;
+		font-size:1.6rem;
+		line-height:2.4rem;
+	}
+
+}
+
+.dl-menuwrapper li {
+
+	&:first-child {
+		span {
+			top:10px;
+			@media #{$sm-min} { 
+				top:20px;
+			}
+		}
+
+		a {
+
+			padding-top:10px;
+			@media #{$sm-min} { 
+				padding-top:20px;
+			}
+		}
+	}
+
+	 &:last-child {
+
+		a {
+
+			
+
+			@media #{$sm-min} { 
+				padding-bottom:20px;
+			}
+		} 
+	}
+}
+
+
+
+.no-touch .dl-menuwrapper li a:hover {
+	background: darken($themeBlue, 30%); 
+	text-decoration: none; 
+	color:#fff;
+	
+}
+/*.dl-menuwrapper li.dl-back > a {
+	padding-left: 30px;
+	background: rgba(0,0,0,0.1);
+}
+
+.dl-menuwrapper li.dl-back:after,
+.dl-menuwrapper li > a:not(:only-child):after {
+	position: absolute;
+	top: 0;
+	line-height: 27px;
+	font-family: 'icomoon';
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	content: "\e000";
+}*/
+
+.dl-menuwrapper li.dl-back:after {
+	left: 10px;
+	color: rgba(212,204,198,0.3);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	overflow: hidden;
+
+}
+
+.dl-menuwrapper li > a:after {
+	right: 10px;
+	color: rgba(0,0,0,0.35);
+}
+
+/*.dl-menuwrapper .dl-menu {
+	margin: 5px 0 0 0;
+	position: absolute;
+	width: 100%;
+	opacity: 0;
+	pointer-events: none;
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}*/
+
+.dl-menuwrapper .dl-menu.dl-menu-toggle {
+	transition: all 0.3s ease;
+}
+
+.dl-menuwrapper .dl-menu.dl-menuopen {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+/* Hide the inner submenus */
+.dl-menuwrapper li .dl-submenu {
+	display: none;
+}
+
+/* 
+When a submenu is openend, we will hide all li siblings.
+For that we give a class to the parent menu called "dl-subview".
+We also hide the submenu link. 
+The opened submenu will get the class "dl-subviewopen".
+All this is done for any sub-level being entered.
+*/
+.dl-menu.dl-subview li,
+.dl-menu.dl-subview li.dl-subviewopen > a,
+.dl-menu.dl-subview li.dl-subview > a {
+	display: none;
+}
+
+.dl-menu.dl-subview li.dl-subview,
+.dl-menu.dl-subview li.dl-subview .dl-submenu,
+.dl-menu.dl-subview li.dl-subviewopen,
+.dl-menu.dl-subview li.dl-subviewopen > .dl-submenu,
+.dl-menu.dl-subview li.dl-subviewopen > .dl-submenu > li {
+	display: block;
+}
+
+/* Dynamically added submenu outside of the menu context */
+.dl-menuwrapper > .dl-submenu {
+	position: absolute;
+	width: 100%;
+	top: 50px;
+	left: 0;
+	margin: 0;
+}
+
+
+
+
+
+/* No JS Fallback */
+.no-js .dl-menuwrapper .dl-menu {
+	position: relative;
+	opacity: 1;
+	-webkit-transform: none;
+	transform: none;
+}
+
+.no-js .dl-menuwrapper li .dl-submenu {
+	display: block;
+}
+
+.no-js .dl-menuwrapper li.dl-back {
+	display: none;
+}
+
+.no-js .dl-menuwrapper li > a:not(:only-child) {
+	background: rgba(0,0,0,0.1);
+}
+
+.no-js .dl-menuwrapper li > a:not(:only-child):after {
+	content: '';
+}
+
+/* End Menu Navigation */
+
+
+/* SOCIAL MEDIA */
+
+.social-media {
+
+	
+	text-align:center;
+
+
+	a {
+		display:none;
+		@media #{$sm-min} { 
+			display:inline-block;
+		}
+		
+		padding-right:10px;
+		padding-left:10px;
+		margin-top:20px;
+		img {
+			width:46px;
+
+		}
+
+		&:first-child {
+			padding-left:0px;
+		}
+		&:last-child {
+			padding-right:0px;
+		}
+
+
+	}
+}
+
+/* END SOCIAL MEDIA */

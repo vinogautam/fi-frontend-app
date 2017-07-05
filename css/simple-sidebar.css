@@ -22,30 +22,37 @@
 
 #wrapper {
     padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
 }
 
 #wrapper.toggled {
     padding-left: 250px;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
+}
+#sidebar-wrapper {
+    width: 300px;
+    display: inline-block;
+    height:100% !important;
+    background: #fff;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 0px;
     width: 0;
+    top:0px;
     height: 100%;
-    margin-left: -250px;
+   /* margin-left: -250px;*/
     overflow-y: auto;
-    background: #890202;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    /*background: #890202;*/
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
     box-shadow: 4px 0 5px 0 rgba(50,50,50,0.35);
 }
 
@@ -78,14 +85,14 @@
 }
 .full-wd-img{ background: url(../image/home-slider.jpg) 0 0px; min-height:650px;  background-size:cover;  background-position: center; }
 .right-side{position: relative;}
-.toggled .menu-icon { transform: translate3d(0, 0, 0); transition: all 0.5s ease 0s;}
-.menu-icon{ position: fixed; top:10px; margin-left:-21px; z-index: 1000;}
-.menu-icon .btn-default{ background: transparent; font-size: 22px; padding: 0px 6px; 
+.toggled .menu-icon { transform: translate3d(0, 0, 0); transition: all 0.9s ease 0s;}
+.menu-icon{ position: fixed; top:10px; margin-left:120px; z-index: 1000; transform: translate3d(0, 0, 0); transition: all 0.9s ease 0s;}
+.menu-icon .btn-default{background: rgba(225,225,255,0.5); font-size: 22px; padding: 2px 10px; 
     border:none; color:#000; }
     .btn-default.focus, .btn-default:focus,.btn-default:active:focus{background: transparent;  border:none; color:#000;}
 .menu-icon .btn-default .fa-bars{ font-size:20px;}
 .slider-part{ position: absolute; top:30px; left:80px; }
-.client-profile{ text-align: center; padding-top: 30px; }
+.client-profile{ width:300px; text-align: center; padding-top: 30px; background: #23527c none repeat scroll 0 0; padding-bottom: 20px; }
 .slider-part h4{ color: #fff; font-size: 24px; }
 .slider-part ul { padding:0;  margin-top:50px;}
 .slider-part ul li{ float: left; padding-right:40px;  list-style-type: none;}
@@ -105,9 +112,9 @@ margin-top: 80px; }
 .client-profile img{ padding:5px;  width: 176px; height:176px; display: inline-block;}
 .client-profile h2{ font-size: 22px; font-weight: bold; color: #fff; font-family: 'Droid Sans', sans-serif;  margin-top: 0; margin-bottom: 0px}
 .client-profile p{color:#fff; font-family: Open Sans; font-size: 14px; margin-top: 0;}
-.client-profile button{ background: transparent; border: 2px solid #fff; border-radius: 10px; color:#fff; font-size: 18px; 
-    font-weight: bold; font-family: 'Droid Sans', sans-serif; padding: 8px 30px;  }
-    .client-profile button:hover{ background: #A60000; border: 2px solid #fff; border-radius: 10px; color:#fff;  
+.client-profile button{ background: transparent; border: 2px solid #fff; border-radius: 6px; color:#fff; font-size: 18px; 
+    font-weight: 400; font-family: 'Droid Sans', sans-serif; padding: 8px 30px;  }
+    .client-profile button:hover{ background: #23527C; border: 2px solid #fff; border-radius: 6px; color:#fff;  
     padding: 8px 30px;  }
 .sidebar-nav li {
     text-indent: 20px;
@@ -144,10 +151,17 @@ padding-right: 42px; font-weight: bold; font-family: 'Droid Sans', sans-serif; f
     color: #fff;
     background: none;
 }
-.social-media { padding: 0; float: right; margin-right: 36px ; margin-top:20px; position: absolute; bottom: 80px; right: 0;}
-.social-media li{ float:left; list-style-type: none;  padding:0 7px;}
-.client-logo{ background: #fff; width:100%; /*display: inline-block;*/ text-align: center;  margin-top:10px; position: absolute; bottom: 0;}
-.client-logo img{    padding: 12px 0;}
+.social-media {     padding: 8px 20px 0;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 61px;
+    right: 0px;
+    border-top: 1px solid #23527c;
+    width:300px;
+    text-align: right;}
+.social-media li{ display:inline-block; list-style-type: none;  padding:0 5px;}
+.client-logo{ background: #ededed; width:100%; /*display: inline-block;*/ text-align: center;  margin-top:10px; position: absolute; bottom: 0;}
+.client-logo img{    padding: 7px 0;}
 .about-section h3{ font-family: ChunkFive;  font-size: 28px; }
 .about-section p{ font-family: Open Sans; font-size: 16px; }
 .about-section a{font-family: Open Sans; font-size: 16px;  font-weight: bold; color: #890202;}
@@ -191,14 +205,15 @@ padding-right: 42px; font-weight: bold; font-family: 'Droid Sans', sans-serif; f
 .about p{ font-size: 14px; font-family:Open Sans; line-height: 22px  }
 .about h4{color:rgb(137,2,2); font-size: 20px; font-weight: bold;}
 .about .border{border: 1px solid #ccc; border-radius: 5px; padding: 10px}
-.full-wd-about{ background: url(../image/about.jpg) 0 0px;  background-position: center;  min-height:650px;  background-size: cover;}
+.full-wd-about{ background: url(../image/about.jpg) 0 0px;  background-position: center;  min-height:470px;  background-size: cover;}
 .client-img img{ width:310px; margin-top: 10px;}
 .panel-title a{color:rgb(137,2,2)}
 .panel-body ul li{ border-bottom:1px dotted #ccc; line-height: 40px;}
 .full-wd-innerqust{background: url(../image/inner-page3.jpg) 0 0px;  background-position: center;  min-height:650px;  background-size:cover;}
 .full-wd-innerfncal{background: url(../image/inner-page2.jpg) 0 0px; min-height:650px;  background-position: center;  background-size:cover;}
-.dl-menu li{ position: relative;}
-.dl-menu li span{ display: block; text-align: right; color:#fff;  position: absolute; right: 17px; top:6px; font-size: 20px}
+/*.dl-menu li{ position: relative;}*/
+.dl-menu li span{ display: block; text-align: right; color:#3c8dbc;  position: absolute; right: 17px; top:6px; font-size: 20px}
+.dl-menu li span:hover{color:#fff;}
 .back-arrow{text-align: left; color:#fff;  position: absolute; left: 10px; top:5px; font-size: 20px !important;
 display: block !important; z-index: 1000;}
 .full-wd-innerconts{background: url(../image/inner-page1.jpg) 0 0px;  background-position: center;  min-height:650px;  background-size:cover;}
@@ -214,28 +229,39 @@ display: block !important; z-index: 1000;}
     font-family: ChunkFive;
     color: #fff;
     text-shadow: 0px 4px 4px #000;
+    margin-top:10px;
 }
 .contact-slider-part p {
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Droid Sans', sans-serif;
-   margin-top: 20px;
-margin-bottom: 30px;
+   margin-top: 10px;
+margin-bottom: 20px;
 }
-.invitation{ background: #000; padding-bottom: 40px;
-padding-top: 10px; display: inline-block; padding-left: 30px; padding-right:30px; border-radius: 10px;}
+.invitation{ background: #fff;
+    padding-bottom: 7px;
+    padding-top: 17px;
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 50px;box-shadow: 0px 1px 7px 0 #000000;
+}
 .invitation h2{color:#fff; font-family: Open Sans; font-size: 22px;  font-weight:bold; padding-bottom:20px;}
 .invitation ul{ padding:0;}
-.invitation ul li{ display: inline-block; padding:0 10px; list-style-type: none;}
+.invitation ul li{ display: inline-block; padding: 7px 0px; list-style-type: none; border-radius: 20px; margin: 3px 5px; width: 170px;}
+.invitation ul li a:focus, .invitation ul li a:hover{ color: #fff; }
+.invitation ul li a{ color: #fff; }
 .mail-box .form-control{ margin-bottom:10px; padding:10px 10px; height: 36px}
 .redeem{ right:30px; position: absolute;}
 .redeem h4{ color:#fff; font-size:18px;}
 .redeem button{ font-size: 18px}
-.reccomend1{ position: absolute; bottom:-69px;  width:100%; left:0; padding: 19px 0;background: rgb(137,1,3);}
-.reccomend{ position:fixed; bottom:0px;  width:100%; left:0; background: #444;padding: 7px 0;}
-.reccomend h4{ color:#fff; font-size: 18px;}
+.reccomend1{ position: absolute; /*bottom:-90px;*/  width:100%; left:0; padding: 19px 0;background:#23527c;}
+
+.reccomend h4{ color:#444; font-size: 18px;}
 .reccomend h4 span{ padding-right:20px;}
-.modal-header{ background: #890202; color: #fff;}
+.modal-header{ background: #23527c; color: #fff;}
+.rewards{color: #fff; font-size: 22px; margin-top: 0; font-family:ChunkFive;}
+.invitation ul li a span i{ padding-right: 6px }
 /*.help{ 
 position: fixed;
 right: 0px;
@@ -244,13 +270,29 @@ bottom: 0;
 margin: auto;
 height: 50px;}*/
 .close{ color: #fff;}
-.help button,.redeem button{ background: transparent; border: 2px solid #fff; border-radius: 10px; color:#fff; font-size: 18px; 
-    font-weight: bold; font-family: 'Droid Sans', sans-serif; padding: 6px 20px;  }
-    .help button:hover,.redeem button:hover{ background: #A60000; border: 2px solid #fff; border-radius: 10px; color:#fff;  
-    padding: 6px 20px;  }
-@media(min-width:768px) {
+
+.help button{ background: transparent; border: 2px solid #3C8DBC; border-radius: 6px; color:#3C8DBC; font-size: 18px; 
+     font-family: 'Droid Sans', sans-serif; padding: 6px 30px;  }
+    .help button:hover,.redeem button:hover{ background: #3C8DBC; border: 2px solid #3C8DBC; border-radius: 6px; color:#fff !important;  
+      }
+    .help1 button{ background: transparent; border: 1px solid #3C8DBC; border-radius:5px; color:#3C8DBC; font-size: 18px; 
+     font-family: 'Droid Sans', sans-serif; padding: 6px 40px;   text-align: center;}
+    .help1 button:hover{ background: #3C8DBC; border: 1px solid #3C8DBC;  color:#fff;  
+     }
+    .help1{ border-top:none; text-align:center; }
+    .redeem button:hover{ background: #A60000; border: 2px solid #fff; border-radius: 6px; color:#fff;  
+    }
+    .add-mail{ background: transparent; border: 1px solid #3C8DBC; border-radius:6px; color:#3C8DBC; font-size: 14px; 
+    font-weight: bold; font-family: 'Droid Sans', sans-serif; padding: 6px 15px;   text-align: center; margin-top:5px;}
+    .redeem button{background:rgba(98,98,100,0.6); border: 2px solid #fff; border-radius: 6px; color:#fff; font-size: 18px; 
+     font-family: 'Droid Sans', sans-serif; padding: 6px 40px;}
+    .gmail{ background:#f25d00;}
+    .fb{ background: #4460a0; }
+    .linkedin{ background: #007ebb;}
+    .tw{ background: #00aaec;}
+    .share-inv{ color: #fff; font-size: 18px ; font-family: 'Droid Sans', sans-serif;}
     #wrapper {
-        padding-left: 300px;
+        /*padding-left: 300px;*/
     }
     #wrapper.toggled {
         padding-left: 0;
@@ -272,28 +314,87 @@ height: 50px;}*/
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
-    }}
+    }
+    .modal-header{ border-radius: 5px 5px 0 0; }
+    .modal-header h4{ text-align: center; font-family:ChunkFive; font-size: 20px; }
+    .modal-body h4{ text-align: center; color:#3C8DBC; font-family:ChunkFive; font-size: 22px; text-transform: uppercase;}
+    .modal-body p{ color: #666; text-align: center; font-size: 14px;}
+    .control-label{font-size: 14px; color: #666; font-weight: 400;}
+    .log{ color: #890103;}
+    .help1 p{ font-size: 14px; margin-top:10px;}
+    .modal-body .form-group{ padding:0 40px; }
+    .btn.focus, .btn:focus, .btn:hover{color: #fff;}
+    .help .btn.focus, .help .btn:focus{color: #890103;}
+    .modal-body .form-group{ position: relative; }
+    .eye{ position: absolute; right: 50px; top:34px; }
+    .eye .fa-eye{color: #888;}
+     .padd-mail{padding-left: 5px; padding-right: 5px;}
+     .tan-icon{padding: 0;}
+     .tan-icon li{list-style-type: none; float: left; padding: 0 10px;}
+     .tan-icon li a img{}
+     .client-del h4{ text-align: left; }
+     .client-del p{  text-align: left; }
+     .arr-one{ left: 200px; position: absolute; margin: -44px 0px;}.arr-one img{ width:80px; }
+     .tooltip.bottom .tooltip-arrow {
+    top: 30px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #fff;
+}
+.tooltip-inner{background: #fff; color:#890103; max-width:300px !important; padding:10px; margin-top: 30px;}
+.tooltip{z-index: 1000}
+.user-details{ position: absolute; right: 0; }
+.user-details p{ color: #fff; }
+.user-details .dropdown-toggle li{ float: left; padding:0 5px; color: #fff; list-style-type: none; }
+.user-details .dropdown-menu{min-width:250px; margin-top: 20px}
+.user-details .dropdown-menu li{ border-bottom: 1px solid #ccc; padding:10px 0; }
+.user-details .dropdown-menu li:last-child{ border-bottom: none; }
+.user-details .dropdown-menu li a .fa-angle-right{float: right;  margin-top: -16px;}
+.redeem-page{text-align: center;}
+.redeem-page h4{ color:#3C8DBC; text-align:center; }
+.redeem-page button{background:#3C8DBC; border: 2px solid #fff; border-radius: 6px; color:#fff; font-size: 18px; 
+     font-family: 'Droid Sans', sans-serif; padding: 6px 40px;}
+     .prt-sly{ position: absolute; top:16px; font-size: 30px; color: #fff; right:0; display: none;}
+
+
+ @media (max-width: 767px){.invitation{width: 230px; border-radius: 5px;}}
+   @media (min-width: 768px){
+.mail-part {
+    width: 900px; margin: 30px auto;} }
+    @media (max-width: 359px){.reccomend{ bottom:-183px; position:absolute; width:100%; left:0; background: #fff;padding: 7px 0; }}
+     @media (min-width: 360px) and (max-width: 767px){.reccomend{ bottom:-200px; position:absolute; width:100%; left:0; background: #fff;padding: 7px 0;}}
+@media (min-width: 768px) and (max-width: 1023px){
+.reccomend{ position:absolute; bottom:-190px;  width:100%; left:0; background: #fff;padding: 7px 0;}}
     @media(min-width:768px) and (max-width:1400px){
     .toggled .menu-icon{margin-left: -80px; top:20px;}.toggled .menu-icon { margin-left: -160px; top:20px;} .redeem{top:0px;}}
-}
+
 @media(max-width:991px) {
 .slider-part h1{ font-size: 30px; } .botton-client{ height: auto; } .clt-img img{ position: inherit; top: 0; }
-.client-msg{ width: 100%; }.slider-part ul li{ padding-right: 20px; }}
+.client-msg{ width: 100%; }.slider-part ul li{ padding-right: 20px; } .arr-one img{ display: none; }}
 @media(max-width:767px) {#page-content-wrapper{position: inherit ;} .slider-part{ left: 20px;top: 100px; } .register{padding: 5px 0px;
 width: 120px;}.learn-more{padding: 5px 0px; width: 120px;} #wrapper.toggled #page-content-wrapper{ position: inherit; }
 .inner-slider-part h1{ font-size: 42px; }.inner-slider-part  p{ font-size: 18px } .video-img{padding-top:50px;}
 .v-section h3{font-size: 22px}.v-section p{ font-size: 15px }.social-media{ position: initial;}.client-logo{ position: initial; display: inline-block;}
 .clt-details h3 { border-right: none; margin-left: 0px; text-align: center;}.clt-img img{ position: inherit; top: 10px; left: 37px }
-.toggled .menu-icon{ position: fixed; margin-left: 30px;}}
+.toggled .menu-icon{ position: fixed; margin-left: 30px;} .contact-slider-part p{font-size: 13px;} .contact-slider-part h1{font-size: 30px;}
+.mrg{ padding: 0 !important; } .reccomend1{ padding: 21px 0; /*bottom: -78px*/ }}
 @media(min-width:768px) {
 .menu-icon{ /*display:none;*/} .clt-details h3{ margin-left: 70px; }}
-@media(min-width:768px) and (max-width:979px) {.container{ width:400px }}
+@media(min-width:768px) and (max-width:979px) {.container{ width:500px }}
 @media(min-width:980px) and (max-width:991px) {.container{ width:600px }}
 @media(min-width:992px) and (max-width:1023px) {.container{ width:750px } .contact-page{height:900px !important; overflow-y: hidden;}}
-@media(min-width:1024px) and (max-width:1280px) {.container{ width:970px }.contact{ height: 650px} .contact-page{height:900px !important; overflow-y: hidden;}}
-@media(min-width:1281px) and (max-width:1400px) {.container{ width:1020px } .contact{ height: 657px}.contact-page{height:900px !important; overflow-y: hidden;}}
-@media(min-width:1400px) {.container{ width:1200px } .menu-icon{margin-left:-200px; top:30px;}
-.toggled .menu-icon{ margin-left:-340px; top:30px;}.slider-part{top:100px;} .contact{ height: 900px}.contact-page{height:900px !important; overflow-y: hidden;}.redeem{top:27px;}}
+@media(min-width:1024px) and (max-width:128px) {.container{ width:970px }.contact{ height: 470px} .reccomend{ position:absolute; bottom:-200px;  width:100%; left:0; background: #fff;padding: 7px 0;}.contact-page{height:900px !important; overflow-y: hidden;}}
+@media(min-width:1281px) and (max-width:1400px) {.container{ width:1020px } .contact{ height: 470px}.contact-page{height:900px !important; overflow-y: hidden;} 
+.reccomend{ position:fixed; bottom:0px;  width:100%; left:0; background: #fff;padding: 7px 0;}}
+@media(min-width:1400px) {.container{ width:1200px } .slider-part{top:100px;} .contact{ height: 900px}.contact-page{height:900px !important; overflow-y: hidden;}
+.redeem{top:27px;}.reccomend1{bottom: 74px;}.reccomend{ position:fixed; bottom:0px;  width:100%; left:0; background: #fff;padding: 7px 0;}
+.contact-slider-part p{ margin-top:30px; } .invitation{margin-top:30px;}.arr-one {
+    left: 296px;
+    margin: -22px 0 0;
+    position: absolute;
+}.contact-slider-part{top:130px;}
+.toggled .menu-icon{margin-left: -220px; top:20px;} }
 
 .multi-item-carousel{
   .carousel-inner{
@@ -339,6 +440,32 @@ body{
 .carousel-control{}
 .mrg{ margin: auto;
 padding: 3px 30px;
-width: 100%;}
+/*width: 100%;*/}
 /*.mrg:hover{background: #890202}*/
 .carousel-control.right,.carousel-control.left{ background: transparent !important;}
+.bg-clr{ background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;left: 0;top: 0;}
+.social-media li a img{ width: 37px }
+@media (min-width: 320px) and (max-width: 767px){.menu-icon {
+    margin-left: 200px;} .social-media{ display: inline-block; }}
+    @media (min-width: 768px) and (max-width: 800px){.menu-icon {
+    margin-left: 160px;}.toggled .menu-icon {
+    margin-left: -120px;}}
+    @media (min-width: 801px) and (max-width: 990px){.menu-icon {
+    margin-left: 130px;}}
+    @media (min-width: 991px) and (max-width: 1023px){.menu-icon {
+    margin-left: 170px;}.toggled .menu-icon {
+    margin-left: -100px;}}
+    @media (min-width: 1024px) and (max-width: 1280px){.menu-icon {
+    margin-left: 240px;}.toggled .menu-icon {
+    margin-left: 30px;}}
+    @media (min-width: 1281px) and (max-width: 1400px){
+    .menu-icon{margin-left:200px; top:20px;}
+.toggled .menu-icon{ margin-left:-10px; top:20px;}}
+  @media (min-width: 1401px) and (max-width: 1600px){.menu-icon{margin-left:200px; top:20px;}
+.toggled .menu-icon{ margin-left:-10px; top:20px;}}
+@media (min-width: 1600px){
+.menu-icon{margin-left:-60px; top:20px;}
+.toggled .menu-icon{ margin-left:-340px; top:20px;}}
+
+
+

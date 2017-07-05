@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contact</title>
+    <title>Andy Blocks - Endorse my services</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,11 +20,13 @@
     <link href="css/component.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <script src="js/modernizr.custom.js"></script>
+    <script src="js/ckeditor.js"></script>
+  <script src="js/sample.js"></script>
 </head>
 
 <body><!--<body class="contact-page">-->
 
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -32,7 +34,7 @@
         <img src="image/client.png" class="img-responsive">
         <h2>Andrew Block C.F.A</h2>
         <p>Member of Financial Insiders</p>
-        <button>Chat With Me</button>
+        <button><i class="fa fa-comments-o" aria-hidden="true"></i> Chat With Me</button>
         </div>
         <div id="dl-menu" class="dl-menuwrapper">
             <!--<button class="dl-trigger">Open Menu</button>-->
@@ -82,29 +84,7 @@
               </li>
             </ul>
           </div>
-          <!-- /dl-menuwrapper -->
-            <!--<ul class="sidebar-nav">
-                
-                <li>
-                    <a href="#">About Me</a>
-                </li>
-                <li>
-                    <a href="#">How I work</a>
-                </li>
-                <li>
-                    <a href="#">Consultation Process</a>
-                </li>
-                <li>
-                    <a href="#">Concepts & Strategies</a>
-                </li>
-                <li>
-                    <a href="#">Request a Consultation</a>
-                </li>
-                <li>
-                    <a href="#">Client Advocacy Program</a>
-                </li>
-               
-            </ul>-->
+          
             <ul class="social-media">
             <li><a href=""><img src="image/fb.png"></a></li>
              <li><a href=""><img src="image/tw.png"></a></li>
@@ -126,34 +106,36 @@
                 <div class="row">
                     <div class="col-lg-12 right-side">
                     <div class="menu-icon">
-                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>       
+                    <a href="#menu-toggle" class="btn btn-default " id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>       
                       </div>
                       <div class="redeem">
-                        <h4>Total Points : 0</h4>
-                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal1">Redeem Points</button>
+                        <h4>Total Points :100</h4>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal1">Redeem</button>
                       </div>
                     <div class="contact-slider-part text-center">
                         <h1>Endorsement form</h1> 
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> 
-Lorem Ipsum has been the industry's standard dummy<br>
-text ever since the 1500s, </p>
-                 <div class="invitation">
-                  <h2>Share  Invitation  on</h2>
+Lorem Ipsum has been the industry's standard  </p>
+                   <div class="arr-one"><img src="image/arrow.png"></div>
+                    <h2 class="share-inv">Share  Invitation  on :</h2>
+                 <div class="invitation"> 
                   <ul>
-                    <li data-toggle="modal" data-target="#myModal"><img src="image/gmail.jpg"></li>
-                    <li><img src="image/fb.jpg"></li>
-                    <li><img src="image/tw.jpg"></li>
+                    <li data-toggle="modal" data-target="#myModal" class="gmail">
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Earn 5 Points for each email invitations"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Email</a></li>
+                    <li class="fb"><a href=""><span><i class="fa fa-facebook" aria-hidden="true"></i></span> Facebook</a></li>
+                    <li class="linkedin"><a href=""><span><i class="fa fa-linkedin" aria-hidden="true"></i></span> Linkedin</a></li>
+                    <li class="tw"><a href=""><span><i class="fa fa-twitter" aria-hidden="true"></i></span> Twitter</a></li>
+                    </ul>
+                   
                  </div>
                  </div>
-                 
-
-                       <!-- <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>-->
-                    </div>
+                  </div>
                 </div>
             </div>
+            </div>
+            <div style="position: relative;">
             <div class="reccomend1 text-center">
+            <h2 class="rewards">Our Rewards</h2>
                 
       <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
@@ -187,118 +169,82 @@ text ever since the 1500s, </p>
         <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon "></i></a>
         <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon "></i></a>
       </div>
-    
-                </div>  
-                 
-                 <div class="reccomend text-center">
-                 <div class="help" data-toggle="tooltip" data-placement="bottom" title="Hooray!"><h4>Suggestions on who to reccomend<button type="button" class="btn" data-toggle="modal" data-target="#uder-help" style="margin-left:20px;">Help</button></h4></div>
-        
+       </div> 
+        <div class="reccomend text-center">
+                 <div class="help"><h4>Suggestions on who to reccomend<button type="button" class="btn" data-toggle="modal" data-target="#uder-help" style="margin-left:20px; margin-top: 7px">Watch show</button></h4></div>
         </div>
       </div>
-      
-<!--<div id="page-content-wrapper" class="footer">
-            <div class="container-fluid">
-        <div class="container">
-                <div class="row" >
-                    <div class="col-lg-8">
-                    <div class="row">
-                    <div class="col-lg-3">
-                        <ul class="foot">
-                        <h3>About</h3>
-                        <li><a href="">About Terry</a></li>
-                        <li><a href="">Professional Resume</a></li>
-                       </ul>
-                    </div>
-                    <div class="col-lg-3">
-                       <ul class="foot">
-                        <h3>Services</h3>
-                        <li><a href="">Consultation Service</a></li>
-                        <li><a href="">How I work</a></li>
-                        <li><a href="">FAQ</a></li>
-                       </ul>
-                    </div>
-                     <div class="col-lg-3">
-                       <ul class="foot">
-                        <h3>Resources</h3>
-                        <li><a href="">Financial Insiders</a></li>
-                        <li><a href="">Consultation Process</a></li>
-                        <li><a href="">Concepts & Strategies</a></li>
-                        <li><a href="">The Financial Journey</a></li>
-                       </ul>
-                    </div>
-                      <div class="col-lg-3">
-                       <ul class="foot">
-                        <h3>Legal</h3>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Security</a></li>
-                       </ul>
-                    </div>
-                    </div>
-                     </div>
-                     <div class="col-lg-4">
-                     <div class="subscribe">
-                     <h2>Register for the Financial Insiders
-                           Loonie Talk Newsletter</h2>
-                           <form action="">
-                           <input type="text" class="form-control sub" placeholder="Enter your Neme">
-                           <input type="text" class="form-control sub" placeholder="Emter your Email">
-                           <p>Your information will 'never' be shared or sold to a 3rd party</p>
-                           <button>Subscribe Now</button>
-                           </form>
-                     </div>
-                     </div>
-                </div>
-         </div> -->                
-   <!--</div>
-</div>-->
-<!--<div id="page-content-wrapper" class="copyright">
-            <div class="container-fluid">
-        <div class="container">
-                <div class="row" >
-                    <div class="col-lg-12 text-center last-foot">                    
-                   <p>Copyright 2016 Financial insiders</p>
-                     </div>
-                </div>
-         </div> -->                
-    <!--</div>
-</div>-->
-
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog mail-part">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">New Message</h4>
+          <h4 class="modal-title">SHARE INVITATIONS</h4>
         </div>
         <div class="modal-body" style="display:inline-block; width:100%;">
+       
+         <div class="col-md-6 col-sm-6">
           <form action="" class="mail-box">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="name">Name:</label>
-                <div class="col-sm-10">
-                <input type="email" class="form-control" id="name" placeholder="Enter Name">
-             </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Email:</label>
-                <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
-             </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Message:</label>
-                <div class="col-sm-10">
-            <textarea class="form-control" rows="5" style="height:80px;"></textarea>
+          <div class="form-group1">
+          <div class="col-md-12 col-sm-12 padd-mail">
+          <h5>Select address book</h5>
+          <ul class="tan-icon">
+          <li><a href=""><img src="image/mail.png"></a></li>
+          <li><a href=""><img src="image/yahoo.png"></a></li>
+          <li><a href=""><img src="image/outlook.png"></a></li>
+          <li><a href=""><img src="image/linkedin.png"></a></li>
+          <li><a href=""><img src="image/aol.png"></a></li>
+           <li><a href=""><img src="image/one.png"></a></li>
+          </ul>
           </div>
+          </div>
+            <div class="form-group1">
+            <div class="col-md-5 col-sm-5  padd-mail">
+                <label class="control-label" for="name">Name:</label>
+                <input type="email" class="form-control" id="name" placeholder="Enter Name">
+                </div>
+                <div class="col-md-5 col-sm-5  padd-mail">
+                <label class="control-label" for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="col-md-2 col-sm-2  padd-mail">
+                <label class="control-label" for="name"></label>
+                <button class="add-mail">Add</button>
+                </div>
+            </div>
+            <div class="form-group1">
+            <div class="col-md-12 col-sm-12  padd-mail">
+                <label class="control-label" for="email">Message:</label>
+            <textarea class="form-control" rows="5" style="height:80px;"></textarea>
+            <h5>Disclaimer Title</h5>
+            <p style="text-align:left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+        </div>
         </div>
 
           </form>
+          </div>
+           <div class="col-md-6 col-sm-6">
+           <div id="editor">
+             <h1>Hello world!</h1>
+              
+           </div>
+           <div class="client-del text-left">
+               <div class="col-md-3">
+                   <img src="image/client.png" class="img-responsive">
+               </div>
+            <div class="col-md-9">
+            <h4>Andrew Block C.F.A</h4>
+            <p>Thank you for agreeing to endorse my services</p>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Send Message</button>
+        </div>
+        </div>
+        <div class="modal-footer help1">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Send Invitation</button>
         </div>
       </div>
       
@@ -312,38 +258,69 @@ text ever since the 1500s, </p>
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Register</h4>
+          <h4 class="modal-title">Redeem Ponits</h4>
         </div>
         <div class="modal-body" style="display:inline-block; width:100%;">
+        <h4>Register</h4>
+        <p>To be eligible to redeem points please create an account</p>
          <form action="" class="mail-box">
             <div class="form-group">
-                <label class="control-label col-sm-2" for="name">Name:</label>
-                <div class="col-sm-10">
-                <input type="email" class="form-control" id="name" placeholder="Enter Name">
-             </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Email:</label>
-                <div class="col-sm-10">
+                <label class="control-label" for="email">Email</label>
+               
                 <input type="email" class="form-control" id="email" placeholder="Enter email">
-             </div>
+            
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd">Password:</label>
-               <div class="col-sm-10">
+                <label class="control-label" for="pwd">Password</label>
+              
                 <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-              </div>
+                <span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span>
+             
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd1">Confirm Password:</label>
-               <div class="col-sm-10">
+                <label class="control-label" for="pwd1">Confirm Password</label>
+            
                 <input type="password" class="form-control" id="pwd1" placeholder="Enter confirm password">
-              </div>
+              <span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Submit</button>
+        <div class="modal-footer help1">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Register</button>
+          <p>Already have an account? <a href="#" class="log" data-toggle="modal" data-dismiss="modal" data-target="#login">Login</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Redeem Ponits</h4>
+        </div>
+        <div class="modal-body" style="display:inline-block; width:100%;">
+        <h4>Login</h4>
+        <p>Please login to your account</p>
+         <form action="" class="mail-box">
+            <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="pwd">Password</label>
+                 <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                 <span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer help1">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Login</button>
+          <p>Already have an account? <a href="#" class="log" data-dismiss="modal" data-toggle="modal" data-target="#myModal1">Register</a></p>
         </div>
       </div>
       
@@ -389,39 +366,12 @@ text ever since the 1500s, </p>
      $(function() {
         $( '#dl-menu' ).dlmenu();
       });
-     script>
+    
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
-<script>
-// Instantiate the Bootstrap carousel
-$('.multi-item-carousel').carousel({
-  interval: false
-});
 
-// for every slide in carousel, copy the next slide's item in the slide.
-// Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-  
-  if (next.next().length>0) {
-    next.next().children(':first-child').clone().appendTo($(this));
-  } else {
-    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-  }
-
-  if (next.next().next().length>0) {
-    next.next().next().children(':first-child').clone().appendTo($(this));
-  } else {
-    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-  }
-});
-</script>
 
 </body>
 

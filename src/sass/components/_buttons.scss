@@ -1,0 +1,304 @@
+/* 
+Copyright (c) 2014 Jonathan Mongeau
+All classes are listed here. Apply as a class to an anchor. | Jonathan Mongeau 
+<a href="#" class="#">This is a button</a>
+
+.btn (Default: .grey and .medium and .normal)
+  
+  .blue (#28ADED)
+  .green (#2FA22F)
+  .red (#FF0000)
+  .yellow (#FFCF00)
+  .white (#FFFFFF)
+  .black (#000000)
+  .purple (#5C075C)
+  .orange (#FF7A00)
+  .pink (#FF7EC7)
+  .navy (#120A55)
+  .grey (#949494)
+
+  .solid (Inverses the colors)
+
+  .thick (font-weight: 700px; border-width: 4px;)
+  .medium (font-weight: 500px; border-width: 3px;)
+  .thin (font-weight: 300px; border-width: 2px;)
+      
+  .small (1em)
+  .normal (1.2em)
+  .large (1.5em)
+  .xlarge (2em)
+*/
+
+
+
+.btn{ 
+  text-decoration: none;
+  display: inline-block;
+  -webkit-border-radius: 8px!important;
+  -moz-border-radius: 8px!important;
+  border-radius: 8px!important;
+  transition: .5s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    cursor: pointer;
+
+
+/*Default in Case there's no specifications | Medium */
+  font-family: $droid;
+  /* font-weight: 500; */
+  
+  
+  border-width:1.2em;
+/*Default in Case there's no specifications | Grey */
+  color:#949494;
+  border:#949494 solid;
+
+/*Default in Case there's no specifications | Normal */
+  font-size: 1.2em;
+}
+
+.btn:hover, .btn:focus{
+/*Default in Case there's no specfications*/
+  color:#ffffff;
+  background-color:#949494;;
+}
+
+.btn:active{
+  color: inherit;
+}
+
+/*Colors*/
+.blue{
+  color:$themeBlue;
+  border:$themeBlue solid;
+font-family: 'Lato', sans-serif;
+font-size: 22px;
+}
+.blue:hover, .blue:focus{
+  color:#ffffff;
+  background-color:$themeBlue;
+}
+
+
+
+
+.red{
+  color:#790303;
+  border:#790303 solid;
+}
+.red:hover, .red:focus{
+  color:#ffffff;
+  background-color:#790303;
+}
+
+
+.yellow{
+  color:#FFCF00;
+  border:#FFCF00 solid;
+}
+.yellow:hover, .yellow:focus{
+  color:#ffffff;
+  background-color:#FFCF00;
+}
+
+.white{
+  color:#ffffff;
+  border:#ffffff solid;
+}
+.white:hover, .white:focus{
+  color:#000000;
+  background-color:#ffffff;
+}
+
+.black{
+  color:#000000;
+  border:#000000 solid;
+}
+.black:hover, .black:focus{
+  color:#ffffff;
+  background-color:#000000;
+}
+
+.purple{
+  color:#5C075C;
+  border:#5C075C solid;
+}
+.purple:hover, .purple:focus{
+  color:#ffffff;
+  background-color:#5C075C;
+}
+
+.orange{
+  color:#FF7A00;
+  border:#FF7A00 solid;
+}
+.orange:hover, .orange:focus{
+  color:#ffffff;
+  background-color:#FF7A00;
+}
+
+.pink{
+  color:#FF7EC7;
+  border:#FF7EC7 solid;
+}
+.pink:hover, .pink:focus{
+  color:#ffffff;
+  background-color:#FF7EC7;
+}
+
+.navy{
+  color:#120A55;
+  border:#120A55 solid;
+}
+.navy:hover, .navy:focus{
+  color:#ffffff;
+  background-color:#120A55;
+}
+
+
+/*Solid Colors*/
+.solid.blue{
+  color:#ffffff;
+  background-color:#28ADED;
+  border:#28ADED solid;
+}
+.solid.blue:hover, .solid.blue:focus{
+  color:#28ADED;
+  background-color:transparent;
+}
+
+
+.solid.red{
+  color:#ffffff;
+  background-color:#790303;
+  border:#790303 solid;
+}
+.solid.red:hover, .solid.red:focus{
+  color:#790303;
+  background-color:transparent;
+}
+
+
+.solid.red-dark{
+  color:#ffffff;
+  background-color:#a60000;
+  border:#a60000 solid;
+}
+.solid.red-dark:hover {
+  color:#a60000;
+  background-color:transparent;
+}
+
+.solid.red-dark:focus {
+  color:white;
+  background-color:#a60000;
+}
+
+
+
+.solid.yellow{
+  color:#ffffff;
+  background-color:#FFCF00;
+  border:#FFCF00 solid;
+}
+.solid.yellow:hover, .solid.yellow:focus{
+  color:#FFCF00;
+  background-color:transparent;
+}
+
+.solid.white{
+  color:#000000;
+  background-color:#FFFFFF;
+  border:#FFFFFF solid;
+}
+.solid.white:hover, .solid.white:focus{
+  color:#FFFFFF;
+  background-color:transparent;
+}
+
+.solid.black{
+  color:#FFFFFF;
+  background-color:#000000;
+  border:#000000 solid;
+}
+.solid.black:hover, .solid.black:focus{
+  color:#000000;
+  background-color:transparent;
+}
+
+.solid.purple{
+  color:#FFFFFF;
+  background-color:#5C075C;
+  border:#5C075C solid;
+}
+.solid.purple:hover, .solid.purple:focus{
+  color:#5C075C;
+  background-color:transparent;
+}
+
+.solid.orange{
+  color:#FFFFFF;
+  background-color:#FF7A00;
+  border:#FF7A00 solid;
+}
+.solid.orange:hover, .solid.orange:focus{
+  color:#FF7A00;
+  background-color:transparent;
+}
+
+.solid.pink{
+  color:#FFFFFF;
+  background-color:#FF7EC7;
+  border:#FF7EC7 solid;
+}
+.solid.pink:hover, .solid.pink:focus{
+  color:#FF7EC7;
+  background-color:transparent;
+}
+
+.solid.navy{
+  color:#FFFFFF;
+  background-color:#120A55;
+  border:#120A55 solid;
+}
+.solid.navy:hover, .solid.navy:focus{
+  color:#120A55;
+  background-color:transparent;
+}
+
+
+/*Thickness*/
+
+.thin{
+  font-weight: 300;
+  border-width:2px;}
+
+.medium{
+  /*This is the default is left empty*/
+  font-weight: 500;
+  border-width:3px;}
+
+.thick{
+  font-weight: 700;
+  border-width:4px;}
+
+
+/*Font Sizes*/
+
+.small{
+  font-size: 1em;
+}
+
+.normal{
+  /*This is the default if left empty*/
+  font-size: 1.2em;
+}
+
+.large{
+  font-size: 1.5em;
+}
+
+.xlarge{
+  font-size: 2em;
+}
