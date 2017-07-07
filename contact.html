@@ -24,7 +24,7 @@
   <script src="js/sample.js"></script>
 </head>
 
-<body><!--<body class="contact-page">-->
+<body ng-app="fiapp" ng-controller="ContactCtrl"><!--<body class="contact-page">-->
 
     <div id="wrapper" class="toggled">
 
@@ -188,33 +188,36 @@ Lorem Ipsum has been the industry's standard  </p>
         <div class="modal-body" style="display:inline-block; width:100%;">
        
          <div class="col-md-6 col-sm-6">
-          <form action="" class="mail-box">
+          <form id="choose-account-ui" class="mail-box">
           <div class="form-group1">
           <div class="col-md-12 col-sm-12 padd-mail">
           <h5>Select address book</h5>
           <ul class="tan-icon">
-          <li><a href=""><img src="image/mail.png"></a></li>
-          <li><a href=""><img src="image/yahoo.png"></a></li>
-          <li><a href=""><img src="image/outlook.png"></a></li>
-          <li><a href=""><img src="image/linkedin.png"></a></li>
-          <li><a href=""><img src="image/aol.png"></a></li>
-           <li><a href=""><img src="image/one.png"></a></li>
+          <li><a class="provider-link cloudsponge-launch" data-cloudsponge-source="gmail" href=""><img src="image/mail.png"></a></li>
+          <li><a class="provider-link cloudsponge-launch" data-cloudsponge-source="yahoo" href=""><img src="image/yahoo.png"></a></li>
+          <li><a class="provider-link cloudsponge-launch" data-cloudsponge-source="windowslive" href=""><img src="image/outlook.png"></a></li><li><a class="provider-link cloudsponge-launch" data-cloudsponge-source="aol" href=""><img src="image/aol.png"></a></li>
           </ul>
           </div>
           </div>
             <div class="form-group1">
             <div class="col-md-5 col-sm-5  padd-mail">
                 <label class="control-label" for="name">Name:</label>
-                <input type="email" class="form-control" id="name" placeholder="Enter Name">
+                <input type="text" ng-model="contact.name" class="form-control" id="name" placeholder="Enter Name">
                 </div>
                 <div class="col-md-5 col-sm-5  padd-mail">
                 <label class="control-label" for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                <input type="email" ng-model="contact.email" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="col-md-2 col-sm-2  padd-mail">
                 <label class="control-label" for="name"></label>
-                <button class="add-mail">Add</button>
+                <button ng-click="add_invitation()" class="add-mail">Add</button>
                 </div>
+            </div>
+            <div ng-show="invitation_contacts_list.length" class="form-group1">
+              <label>Selected Contacts</label>
+                  <p style="text-align: left;" ng-repeat="con in invitation_contacts_list">
+                      {{$index+1}}. {{con.name}}<{{con.email}}> <i class="fa fa-trash" ng-click="remove_contact($index);"></i>
+                  </p>
             </div>
             <div class="form-group1">
             <div class="col-md-12 col-sm-12  padd-mail">
@@ -353,24 +356,69 @@ Lorem Ipsum has been the industry's standard  </p>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
+    <script src="js/angular.js"></script>
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Menu Toggle Script -->
     <script src="js/jquery.dlmenu.js"></script>
+    <script src="//api.cloudsponge.com/widget/localhost-only.js"></script>
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-     $(function() {
-        $( '#dl-menu' ).dlmenu();
+      angular.module('fiapp', []).
+      controller('ContactCtrl', function($scope){
+
+          $scope.invitation_contacts_list = [];
+          $scope.contact = {};
+
+          $scope.add_invitation = function(){
+            $scope.invitation_contacts_list.push({name: $scope.contact.name, email: $scope.contact.email});
+            $scope.contact = {};
+          };
+
+          $('[data-toggle="tooltip"]').tooltip(); 
+          $( '#dl-menu' ).dlmenu();  
+          $("#menu-toggle").click(function(e) {
+              e.preventDefault();
+              $("#wrapper").toggleClass("toggled");
+          });
+          cloudsponge.init({
+            // this puts the widget UI inside a div on your page, make sure this element has a height and width
+            rootNodeSelector: '#choose-contacts-ui',
+            // since we're using deep links, we are going to suppress the widget's display of sources
+            skipSourceMenu: true,
+
+            // callbacks let your page respond to important widget events
+            afterLaunch: function(){
+              // display a Loading... message
+              document.getElementById('loading-ui').style.display = "block";
+            },
+            afterClosing:function(){
+              // reset the page's UI state so that another import is possible
+              document.getElementById('loading-ui').style.display = "none";
+              document.getElementById('choose-account-ui').style.display = "block";
+              document.getElementById('choose-contacts-ui').style.display = "none";
+            },
+            // called before the widget renders the UI with the address book
+            beforeDisplayContacts: function(){
+              document.getElementById('loading-ui').style.display = "none";
+              // hide the Choose account UI and display the Choose contacts UI
+              document.getElementById('choose-account-ui').style.display = "none";
+              document.getElementById('choose-contacts-ui').style.display = "block";
+            },
+            // called after the user submits their contacts
+            afterSubmitContacts: function(contacts, source, owner) {
+              $scope.$apply(function(){
+                angular.forEach(contacts, function(val, key){
+                  $scope.invitation_contacts_list.push({name: val.first_name+' '+val.last_name, email: val.email[0].address});
+                $scope.contact = {};
+                });
+              });
+              // The user has successfully shared their contacts
+              // here's where you can send the user to the next step
+            }
+          });
       });
-    
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
+    </script>
 
 
 </body>
