@@ -303,7 +303,7 @@ height: 50px;}*/
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 0;
+        left: -300px;
     }
 
     #page-content-wrapper {
