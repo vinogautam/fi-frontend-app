@@ -10,7 +10,7 @@ function routes($stateProvider, $urlRouterProvider) {
         .when('', '/home');
 
     var states = [
-    'home', 'contact'
+    'home', 'contact', 'consultation', 'financial'
     ];
 
     angular.forEach(states, function (state) {
