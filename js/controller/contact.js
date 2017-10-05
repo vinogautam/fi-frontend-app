@@ -1,5 +1,16 @@
-fiapp.controller('contactCtrl', ['$scope',
-	function($scope){
+fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$rootScope',
+	function($scope, $location, $http, APIURL, $rootScope){
+
+    
+    $rootScope.user = {};
+
+    if($location.$$url.indexOf("autologin") != -1){
+
+      $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_auto_login&autologin='+$location.$$url.split("autologin=")[1]).then(function(res){
+        $rootScope.user = res['data']['data'];
+      });
+    }
+
 		$scope.invitation_contacts_list = [];
           $scope.contact = {};
 

@@ -4,3 +4,7 @@ fiapp.controller('commonCtrl', ['$scope',
 	    $( '#dl-menu' ).dlmenu();
 	}
 ]);
+
+fiapp.value('APIURL', 'https://financialinsiders.ca/');
+
+//fiapp.value('APIURL', 'http://localhost/financialinsider/');

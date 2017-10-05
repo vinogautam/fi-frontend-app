@@ -11,7 +11,7 @@
                     <a href="#menu-toggle" class="btn btn-default " id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>       
                       </div>
                       <div class="redeem">
-                        <h4>Total Points :100</h4>
+                        <h4>Total Points :{{user.points}}</h4>
                         <button type="button" class="btn" data-toggle="modal" data-target="#myModal1">Redeem</button>
                       </div>
                     <div class="contact-slider-part text-center">
@@ -124,7 +124,7 @@ Lorem Ipsum has been the industry's standard  </p>
             <div class="form-group1">
             <div class="col-md-12 col-sm-12  padd-mail">
                 <label class="control-label" for="email">Message:</label>
-            <textarea class="form-control" rows="5" style="height:80px;"></textarea>
+            <textarea ng-model="user.mailtemplate" class="form-control" rows="5" style="height:80px;"></textarea>
             <h5>Disclaimer Title</h5>
             <p style="text-align:left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
         </div>
