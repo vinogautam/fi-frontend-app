@@ -9,7 +9,51 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
       $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_auto_login&autologin='+$location.$$url.split("autologin=")[1]).then(function(res){
         $rootScope.user = res['data']['data'];
       });
+
+      /************************ SOCIAL SHARE ******************************/
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '<?= FB_APP_ID; ?>',
+          cookie     : true,  // enable cookies to allow the server to access 
+                              // the session
+          xfbml      : true,  // parse social plugins on this page
+          version    : 'v2.5' // use graph api version 2.5
+        });
+      }
+
+      (function(d, s, id){
+          var js, pjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//assets.pinterest.com/sdk/sdk.js";
+          pjs.parentNode.insertBefore(js, pjs);
+      }(document, 'script', 'pinterest-jssdk'));
+
+      (function(d, s, id){
+          var js, pjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//platform.linkedin.com/in.js";
+          pjs.parentNode.insertBefore(js, pjs);
+      }(document, 'script', 'linkedin-jssdk'));
+
+      window.pAsyncInit = function() {
+          PDK.init({
+              appId: "<?= PI_APP_ID; ?>", // Change this
+              cookie: true
+          });
+      }
     }
+
+      /************************ SOCIAL SHARE ******************************/
 
 		$scope.invitation_contacts_list = [];
           $scope.contact = {};
