@@ -1,5 +1,5 @@
-fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$rootScope',
-	function($scope, $location, $http, APIURL, $rootScope){
+fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$rootScope', 'FB_APP_ID', 'PI_APP_ID', 'SocialShare',
+	function($scope, $location, $http, APIURL, $rootScope, FB_APP_ID, PI_APP_ID, SocialShare){
 
     
     $rootScope.user = {};
@@ -11,7 +11,7 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
       });
 
       /************************ SOCIAL SHARE ******************************/
-      /*(function(d, s, id) {
+      (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
@@ -21,13 +21,13 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
 
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '<?= FB_APP_ID; ?>',
+          appId      : FB_APP_ID,
           cookie     : true,  // enable cookies to allow the server to access 
                               // the session
           xfbml      : true,  // parse social plugins on this page
           version    : 'v2.5' // use graph api version 2.5
         });
-      }
+      };
 
       (function(d, s, id){
           var js, pjs = d.getElementsByTagName(s)[0];
@@ -37,25 +37,29 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
           pjs.parentNode.insertBefore(js, pjs);
       }(document, 'script', 'pinterest-jssdk'));
 
-      (function(d, s, id){
-          var js, pjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//platform.linkedin.com/in.js";
-          pjs.parentNode.insertBefore(js, pjs);
-      }(document, 'script', 'linkedin-jssdk'));
-
       window.pAsyncInit = function() {
           PDK.init({
-              appId: "<?= PI_APP_ID; ?>", // Change this
+              appId: PI_APP_ID, // Change this
               cookie: true
           });
-      }*/
+      }
     }
 
       /************************ SOCIAL SHARE ******************************/
 
-		$scope.invitation_contacts_list = [];
+		$scope.success_callback = function(resp, type){
+      console.log(resp, type);
+    };
+
+    $scope.error_callback = function(resp, type){
+      console.log(resp, type);
+    };
+
+    $scope.social_share = function(type){
+      SocialShare[type]({}, $scope.success_callback, $scope.error_callback);
+    };
+
+    $scope.invitation_contacts_list = [];
           $scope.contact = {};
 
           $scope.add_invitation = function(){

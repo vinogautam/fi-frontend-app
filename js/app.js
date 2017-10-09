@@ -22,3 +22,7 @@ function routes($stateProvider, $urlRouterProvider) {
         });
     });
 }
+
+ fiapp.value('FB_APP_ID', '1801608280082028');
+ fiapp.value('LI_APP_ID', '865r9ywbcc2tra');
+ fiapp.value('PI_APP_ID', '4867120598806966651');
