@@ -8,7 +8,7 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
 
       $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_auto_login&autologin='+$location.$$url.split("autologin=")[1]).then(function(res){
         $rootScope.user = res['data']['data'];
-      });
+      
 
       /************************ SOCIAL SHARE ******************************/
       (function(d, s, id) {
@@ -43,12 +43,25 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
               cookie: true
           });
       }
+
+      });
     }
 
       /************************ SOCIAL SHARE ******************************/
 
+    $scope.social_share_obj = {fb: 'fbShare', 'li': 'linkedInShare', 'tw': 'twitterShare'}
+
 		$scope.success_callback = function(resp, type){
       console.log(resp, type);
+      data = {
+        endorser_id: $rootScope.user.endorser.ID,
+        points: 25,
+        type: type + 'Share',
+        notes: ''
+      };
+      $http.post(APIURL+'wp-admin/admin-ajax.php?action=ic_add_points', data, {headers:{'Content-Type': 'application/x-www-form-urlencoded'}}).then(function(res){
+        $rootScope.user.points = res.data.total_points;
+      });
     };
 
     $scope.error_callback = function(resp, type){
@@ -56,7 +69,7 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     };
 
     $scope.social_share = function(type){
-      SocialShare[type]({}, $scope.success_callback, $scope.error_callback);
+      SocialShare[$scope.social_share_obj[type]]($rootScope.user[type+'_ref_link'], $scope.success_callback, $scope.error_callback);
     };
 
     $scope.invitation_contacts_list = [];

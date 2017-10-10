@@ -19,7 +19,10 @@ fiapp.service('SocialShare', function(){
 					  method: 'share',
 					  href: refurl,
 					}, function(response1){
-						callback(response1, 'FB');
+						if(Array.isArray(response1))
+							callback(response1, 'FB');
+						else
+							callback2(response1, 'FB');
 					});
 		    	});
 		    }
