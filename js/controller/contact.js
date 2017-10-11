@@ -69,7 +69,12 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     };
 
     $scope.social_share = function(type){
-      SocialShare[$scope.social_share_obj[type]]($rootScope.user[type+'_ref_link'], $scope.success_callback, $scope.error_callback);
+
+      if(type === 'tw') {
+        SocialShare[$scope.social_share_obj[type]]($rootScope.user[type+'_ref_link'], $rootScope.user['twitter_text'], $scope.success_callback, $scope.error_callback);
+      } else {
+        SocialShare[$scope.social_share_obj[type]]($rootScope.user[type+'_ref_link'], $scope.success_callback, $scope.error_callback);
+      }
     };
 
     $scope.invitation_contacts_list = [];

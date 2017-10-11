@@ -79,5 +79,15 @@ fiapp.service('SocialShare', function(){
 				  }
 				});
 	        });
-		}
+		};
+
+	this.twitterShare = function(refurl, twitter_text, callback1, callback2){
+		win = window.open('https://twitter.com/intent/tweet?text='+twitter_text+'&url='+encodeURIComponent(refurl),'sharer','toolbar=0,status=0,width=626,height=436');
+		var pollTimer = window.setInterval(function() {
+		    if (win.closed !== false) { 
+		        window.clearInterval(pollTimer);
+		        //callback1({}, 'TW');
+		    }
+		}, 200);
+	};
 });
