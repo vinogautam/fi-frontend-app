@@ -37,6 +37,10 @@
 
 <body ng-app="app" ng-controller="commonCtrl">
 
+    <div ng-if="show_alert.st" class="show_alert {{show_alert.st}}" >
+      {{show_alert.msg}}
+    </div>
+
     <div id="wrapper" class="toggled">
 
         <div ng-include="'templates/sidebar.html'"></div>
@@ -53,7 +57,7 @@
     <script src="js/angular-ui-router.min.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    <script src="//api.cloudsponge.com/widget/localhost-only.js"></script>
+    <script src="//api.cloudsponge.com/widget/ced9f758e6b91cc20f195411df875d6d3b8c055e.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

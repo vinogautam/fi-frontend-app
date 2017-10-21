@@ -90,7 +90,7 @@ Lorem Ipsum has been the industry's standard  </p>
         <div class="modal-body" style="display:inline-block; width:100%;">
        
          <div class="col-md-6 col-sm-6">
-          <form id="choose-account-ui" class="mail-box">
+          <form name="invitationform" id="choose-account-ui" class="mail-box">
           <div class="form-group1">
           <div class="col-md-12 col-sm-12 padd-mail">
           <h5>Select address book</h5>
@@ -101,24 +101,24 @@ Lorem Ipsum has been the industry's standard  </p>
           </ul>
           </div>
           </div>
-            <div class="form-group1">
-            <div class="col-md-5 col-sm-5  padd-mail">
+            <div class="form-group1" ng-class="{submitted:click}">
+              <div class="col-md-5 col-sm-5  padd-mail">
                 <label class="control-label" for="name">Name:</label>
-                <input type="text" ng-model="contact.name" class="form-control" id="name" placeholder="Enter Name">
+                <input name="name" required="" type="text" ng-model="contact.name" class="form-control" id="name" placeholder="Enter Name">
                 </div>
                 <div class="col-md-5 col-sm-5  padd-mail">
                 <label class="control-label" for="email">Email:</label>
-                <input type="email" ng-model="contact.email" class="form-control" id="email" placeholder="Enter email">
+                <input name="email" required type="email" ng-model="contact.email" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="col-md-2 col-sm-2  padd-mail">
                 <label class="control-label" for="name"></label>
-                <button ng-click="add_invitation()" class="add-mail">Add</button>
+                <button ng-click="click=1;add_invitation(invitationform.name.$valid&&invitationform.email.$valid)" class="add-mail">Add</button>
                 </div>
             </div>
             <div ng-show="invitation_contacts_list.length" class="form-group1">
               <label>Selected Contacts</label>
                   <p style="text-align: left;" ng-repeat="con in invitation_contacts_list">
-                      {{$index+1}}. {{con.name}}<{{con.email}}> <i class="fa fa-trash" ng-click="remove_contact($index);"></i>
+                      {{$index+1}}. {{con.name}}<{{con.email}}> <i class="fa fa-trash cp" ng-click="remove_contact($index);"></i>
                   </p>
             </div>
             <div class="form-group1">
@@ -149,7 +149,7 @@ Lorem Ipsum has been the industry's standard  </p>
         </div>
         </div>
         <div class="modal-footer help1">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Send Invitation</button>
+          <button ng-click="send_invitation()" type="button" class="btn btn-danger" >Send Invitation</button>
         </div>
       </div>
       
@@ -253,3 +253,4 @@ Lorem Ipsum has been the industry's standard  </p>
       
     </div>
   </div>
+

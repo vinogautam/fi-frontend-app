@@ -184,3 +184,19 @@ a {
 	}
 }
 
+.submitted .ng-invalid{border:1px solid red;}
+.cp{cursor: pointer;}
+.show_alert {
+    background: green none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 5px;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    top: 20px;
+    width: 300px;
+    z-index:9999;
+}
+.show_alert.success{background:#5caf08;}
+.show_alert.error{background:#ef9797;}

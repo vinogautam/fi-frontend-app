@@ -7,6 +7,14 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     if($location.$$url.indexOf("autologin") != -1){
 
       $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_auto_login&autologin='+$location.$$url.split("autologin=")[1]).then(function(res){
+        
+        if(res['data']['status'] === 'Error'){
+          $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
+          return;
+        }
+
+        $rootScope.show_alert_toggle({'st':'success', 'msg': 'Aulogged successfully'});
+
         $rootScope.user = res['data']['data'];
       
 
@@ -78,23 +86,49 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     };
 
     $scope.invitation_contacts_list = [];
-          $scope.contact = {};
+    $scope.contact = {};
+    $scope.click =0;
+    $scope.add_invitation = function(fl){
+      if(fl) {
+        $scope.invitation_contacts_list.push({name: $scope.contact.name, email: $scope.contact.email});
+        $scope.contact = {};
+        $scope.click =0;
+      }
+    };
 
-          $scope.add_invitation = function(){
-            $scope.invitation_contacts_list.push({name: $scope.contact.name, email: $scope.contact.email});
-            $scope.contact = {};
-          };
+    $scope.remove_contact = function(ind){
+      $scope.invitation_contacts_list.splice(ind, 1);
+    };
 
-          $scope.remove_contact = function(ind){
-            $scope.invitation_contacts_list.splice(ind, 1);
-          };
+    $('[data-toggle="tooltip"]').tooltip(); 
+    $( '#dl-menu' ).dlmenu();  
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
 
-          $('[data-toggle="tooltip"]').tooltip(); 
-          $( '#dl-menu' ).dlmenu();  
-          $("#menu-toggle").click(function(e) {
-              e.preventDefault();
-              $("#wrapper").toggleClass("toggled");
-          });
+    $scope.send_invitation = function(){
+      if($scope.invitation_contacts_list.length){
+
+        $http.post(APIURL+'wp-admin/admin-ajax.php?action=ic_send_endorsement_invitation', 
+          {id: $rootScope.user.endorser.ID, template:$rootScope.user.mailtemplate, contacts: $scope.invitation_contacts_list},
+         {headers:{'Content-Type': 'application/x-www-form-urlencoded'}}).then(function(res){
+
+          $scope.invitation_contacts_list = [];
+          $("#myModal").modal('hide');
+
+          $rootScope.show_alert_toggle({'st':'success', 'msg': 'Invitation send successfully'});
+
+        });
+        
+
+      } else {
+        $rootScope.show_alert_toggle({'st':'error', 'msg': 'No Contacts found. Please add to send invitation'});
+      }
+    };
+
+
+
           cloudsponge.init({
             // this puts the widget UI inside a div on your page, make sure this element has a height and width
             rootNodeSelector: '#choose-contacts-ui',
