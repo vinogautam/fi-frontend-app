@@ -200,3 +200,12 @@ a {
 }
 .show_alert.success{background:#5caf08;}
 .show_alert.error{background:#ef9797;}
+.preview_button{
+	padding: 2px 4px;
+	background: #d4d4d4;
+	position: absolute;
+	right:5px;
+	top:-2px;
+	cursor: pointer;
+	z-index: 5;
+}

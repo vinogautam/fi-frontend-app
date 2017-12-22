@@ -57,6 +57,19 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
 
       /************************ SOCIAL SHARE ******************************/
 
+    $scope.open_preview = function(data){
+      var newWin = open('preview.html','Preview', "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=560, height=700, top=100, left=400");
+      temp = data.mailtemplate.replace('[NOTES]', data.notes);
+
+      $http.get(APIURL+'?action=ic_get_template_style').then(function(res){
+        console.log(res);
+        var pdata = {content: temp, style: res.css};
+        newWin.postMessage(pdata, window.location.origin);
+      });
+      
+
+    };
+
     $scope.social_share_obj = {fb: 'fbShare', 'li': 'linkedInShare', 'tw': 'twitterShare'}
 
 		$scope.success_callback = function(resp, type){
@@ -111,7 +124,7 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
       if($scope.invitation_contacts_list.length){
 
         $http.post(APIURL+'wp-admin/admin-ajax.php?action=ic_send_endorsement_invitation', 
-          {id: $rootScope.user.endorser.ID, template:$rootScope.user.mailtemplate, contacts: $scope.invitation_contacts_list},
+          {id: $rootScope.user.endorser.ID, template:$rootScope.user.notes, contacts: $scope.invitation_contacts_list},
          {headers:{'Content-Type': 'application/x-www-form-urlencoded'}}).then(function(res){
 
           $scope.invitation_contacts_list = [];
