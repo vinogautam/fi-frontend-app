@@ -11,8 +11,8 @@ fiapp.value('APIURL', 'https://financialinsiders.ca/');
 
 fiapp.service('SocialShare', function(){
 	this.fbShare = function (refurl, callback, callback2) {
-        FB.getLoginStatus(function(response) {
-		    if (response.status === 'connected') {
+        FB.login(function(response) {
+		    if (response.authResponse) {
 		    	FB.api('/me', function(response) {
 		    		FB.ui(
 					{
