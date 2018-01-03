@@ -68,7 +68,31 @@
     <script src="js/controller/home.js"></script>
     
     <!-- Menu Toggle Script -->
+    <script type="text/javascript">
 
+            var $fiApp = $fiApp || {};
+            $fiApp.instanceId = "69";
+            $fiApp.welcomeMsg = "";
+            
+            
+            
+            $fiApp.endorserId = "";
+            $fiApp.page = window.location.href;
+            $fiApp.siteId = "42";
+            $fiApp.blogUrl = window.location.href;
+            $fiApp.visited_page = window.location.href;
+            $fiApp.introVideo = "";
+            
+            if($fiApp.endorserId || $fiApp.siteId){
+                var d = document, s = d.createElement('script'); 
+                s.type = "text/javascript";
+                s.src = "//chat.app.financialinsiders.ca/fichat.script.js";
+                d.body.appendChild(s);
+            }
+            
+
+            
+    </script>
 </body>
 
 </html>
