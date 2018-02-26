@@ -4,18 +4,31 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     
     $rootScope.user = {};
 
+    $scope.autologgin = false;
+
     if($location.$$url.indexOf("autologin") != -1){
 
       $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_auto_login&autologin='+$location.$$url.split("autologin=")[1]).then(function(res){
         
         if(res['data']['status'] === 'Error'){
           $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
+          $("#login").modal('show');
           return;
         }
 
         $rootScope.show_alert_toggle({'st':'success', 'msg': 'Aulogged successfully'});
 
-        $rootScope.user = res['data']['data'];
+        $scope.login_callback(res);
+
+        $scope.autologgin = true;
+
+      });
+    } else{
+      $("#login").modal('show');
+    }
+
+    $scope.login_callback = function(res){
+      $rootScope.user = res['data']['data'];
       
 
       /************************ SOCIAL SHARE ******************************/
@@ -51,9 +64,43 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
               cookie: true
           });
       }
+    };
+
+    $scope.luser = {};
+
+    $scope.login = function(){
+      $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_login', $scope.luser).then(function(res){
+        
+        if(res['data']['status'] === 'Error'){
+          $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
+          $("#login").modal('show');
+          return;
+        }
+
+        $rootScope.show_alert_toggle({'st':'success', 'msg': 'Logged in successfully'});
+
+        $scope.login_callback(res);
 
       });
-    }
+    };
+
+    $scope.ruser = {};
+
+    $scope.resetPassword = function(){
+      $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_reset_password', $scope.ruser).then(function(res){
+        
+        if(res['data']['status'] === 'Error'){
+          $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
+          return;
+        }
+
+        $rootScope.show_alert_toggle({'st':'success', 'msg': 'Password Reset, Log in with new password'});
+
+        $("#login").modal('show');
+
+      });
+    };
+
 
       /************************ SOCIAL SHARE ******************************/
 

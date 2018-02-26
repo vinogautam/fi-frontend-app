@@ -209,3 +209,12 @@ a {
 	cursor: pointer;
 	z-index: 5;
 }
+#login.modal{
+	pointer-events: none;
+}
+#login.modal .modal-content{
+	pointer-events: auto;
+}
+#login.modal .close{
+	display: none;
+}
