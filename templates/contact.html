@@ -170,7 +170,7 @@ Lorem Ipsum has been the industry's standard  </p>
         <div class="modal-body" style="display:inline-block; width:100%;">
         <h4>Register</h4>
         <p>To be eligible to redeem points please create an account</p>
-         <form action="" class="mail-box">
+         <form name="passwordReset" action="" class="mail-box">
             <!-- <div class="form-group">
                 <label class="control-label" for="email">Email</label>
                
@@ -180,20 +180,20 @@ Lorem Ipsum has been the industry's standard  </p>
             <div class="form-group">
                 <label class="control-label" for="pwd">Password</label>
               
-                <input type="password" ng-model="ruser.password" class="form-control" id="pwd" placeholder="Enter password">
+                <input required name="password" type="password" ng-model="ruser.password" class="form-control" id="pwd" placeholder="Enter password">
                 <span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span>
              
             </div>
             <div class="form-group">
                 <label class="control-label" for="pwd1">Confirm Password</label>
             
-                <input type="password" ng-model="ruser.cpassword" class="form-control" id="pwd1" placeholder="Enter confirm password">
+                <input required compare-to="ruser.cpassword" name="cpassword" type="password" ng-model="ruser.cpassword" class="form-control" id="pwd1" placeholder="Enter confirm password">
               <span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </div>
           </form>
         </div>
         <div class="modal-footer help1">
-          <button type="button" class="btn btn-danger" ng-click="resetPassword()">Register</button>
+          <button type="button" ng-disabled="passwordReset.$invalid" class="btn btn-danger" ng-click="resetPassword()">Register</button>
           <!-- <p>Already have an account? <a href="#" class="log" data-toggle="modal" data-dismiss="modal" data-target="#login">Login</a></p> -->
         </div>
       </div>
@@ -213,7 +213,7 @@ Lorem Ipsum has been the industry's standard  </p>
         <div class="modal-body" style="display:inline-block; width:100%;">
         <h4>Login</h4>
         <p>Please login to your account</p>
-         <form action="" class="mail-box">
+         <form  name="loginForm" action="" class="mail-box">
             <div class="form-group">
                 <label class="control-label" for="email">Email</label>
                 <input type="email" class="form-control" ng-model="luser.email" id="email" placeholder="Enter email">
@@ -226,8 +226,8 @@ Lorem Ipsum has been the industry's standard  </p>
           </form>
         </div>
         <div class="modal-footer help1">
-          <button type="button" class="btn btn-danger" ng-click="login()">Login</button>
-          <!-- <p>Already have an account? <a href="#" class="log" data-dismiss="modal" data-toggle="modal" data-target="#myModal1">Register</a></p> -->
+          <button ng-disabled="loginForm.$invalid" type="button" class="btn btn-danger" ng-click="login()">Login</button>
+          <p>Already have an account? <a href="#" class="log" data-dismiss="modal" data-toggle="modal" data-target="#register">Register</a></p>
         </div>
       </div>
       
@@ -256,3 +256,39 @@ Lorem Ipsum has been the industry's standard  </p>
     </div>
   </div>
 
+<!-- Modal -->
+  <div class="modal fade" id="register" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Redeem Ponits</h4>
+        </div>
+        <div class="modal-body" style="display:inline-block; width:100%;">
+        <h4>Login</h4>
+        <p>Please login to your account</p>
+         <form  name="loginForm" action="" class="mail-box">
+            <div class="form-group">
+                <label class="control-label" for="email">Firstname</label>
+                <input type="text" class="form-control" ng-model="reuser.firstname" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="email">Lastname</label>
+                <input type="text" class="form-control" ng-model="reuser.lastname" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                <input type="email" class="form-control" ng-model="reuser.email" id="email" placeholder="Enter email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer help1">
+          <button ng-disabled="loginForm.$invalid" type="button" class="btn btn-danger" ng-click="register()">Register</button>
+          <a href="#" class="log" data-dismiss="modal" data-toggle="modal" data-target="#login">Back to Login</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
