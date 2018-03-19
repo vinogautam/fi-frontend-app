@@ -69,14 +69,15 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     $scope.luser = {};
 
     $scope.login = function(){
-      $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_login', $scope.luser).then(function(res){
+      $http.post(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_login', $scope.luser,
+        {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}).then(function(res){
         
         if(res['data']['status'] === 'Error'){
           $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
           $("#login").modal('show');
           return;
         }
-
+        $("#login").modal('hide');
         $rootScope.show_alert_toggle({'st':'success', 'msg': 'Logged in successfully'});
 
         $scope.login_callback(res);
@@ -87,7 +88,8 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     $scope.reuser = {};
 
     $scope.register = function(){
-      $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_register', $scope.reuser).then(function(res){
+      $http.post(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_register', $scope.reuser,
+        {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}).then(function(res){
         
         if(res['data']['status'] === 'Error'){
           $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
@@ -104,7 +106,8 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
     $scope.ruser = {};
 
     $scope.resetPassword = function(){
-      $http.get(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_reset_password&id='+$rootScope.user['ID'], $scope.ruser).then(function(res){
+      $http.post(APIURL+'wp-admin/admin-ajax.php?action=ic_endorser_reset_password&id='+$rootScope.user['endorser']['ID'], $scope.ruser,
+        {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}).then(function(res){
         
         if(res['data']['status'] === 'Error'){
           $rootScope.show_alert_toggle({'st':'error', 'msg':res['data']['msg']});
@@ -112,7 +115,7 @@ fiapp.controller('contactCtrl', ['$scope', '$location', '$http', 'APIURL', '$roo
         }
 
         $rootScope.show_alert_toggle({'st':'success', 'msg': 'Password Reset, Log in with new password'});
-
+        $("#resetPassword").modal('hide');
         $("#login").modal('show');
 
       });
